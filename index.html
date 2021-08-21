@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind link -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- external css stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Assigment - 5</title>
+</head>
+<body>
+    <main>
+        <div class="grid grid-cols-2 gap-4 mt-8	">
+            <div class="">
+                <img class="w-4/5 mx-auto mt-5" src="images/mac.png" alt="" srcset="">
+            </div>
+            <div class="mx-2 mb-5">
+                <div>
+                  <!-- macbook pro description -->
+                    <h2 class="text-3xl font-bold">MacBook Pro: The biggest and baddest Mac laptops</h2>
+                    <p class="text-gray-500">Apple is claiming this is the first notebook in the world to offer an 8 TB option for internal storage. As standard, it now comes with 512GB SSD - double the previous generation.</p>
+                </div>
+                <div class="mt-8">
+                    <div class="mb-8">
+                      <!-- Memory -->
+                        <h4>Memory</h1>
+                        <button id="8gb-memory" class=" btn border-2 p-1 rounded">8GB unified memory</button>
+                        <button id="16gb-memory" class="btn border-2 p-1 rounded">16GB unified memory</button>
+                    </div>
+                    <div class="mb-8">
+                      <!-- storage -->
+                        <h4>storage</h1>
+                        <button id="256gb-ssd" class="btn border-2 p-1 rounded">256GB SSD storage</button>
+                        <button id="512gb-ssd" class="btn border-2 p-1 rounded">512GB SSD storage</button>
+                        <button id="1tb-ssd" class="btn border-2 p-1 rounded">1TB SSD storage</button>
+                    </div>
+                    <div class="mb-8">
+                      <!-- delivery system -->
+                        <h4>Choose your delivery option</h1>
+                        <button id="prime-delivery" class="btn border-2 p-1 rounded">Friday, August 25 free prime delivery</button>
+                        <button id="quick-delivery" class="btn border-2 p-1 rounded">Friday, August 21, Delivey charge $21</button>
+                    </div>
+
+                    <!-- price calculation -->
+                    <div>
+                        <table class="text-left">
+                            <tr class="mb-6">
+                              <th>Best Price</th>
+                              <th>$<span id="best-price">1299</span></th>
+                            </tr>
+                            <tr>
+                              <th>Extra Memory Cost</th>
+                              <th>$<span id="extra-momery-cost">0</span></th>
+                            </tr>
+                            <tr>
+                              <th>Extra Storage</th>
+                              <th>$<span id="extra-ssd-cost">0</span></th>
+                            </tr>
+                            <tr>
+                              <th>Delivery Charge</th>
+                              <th>$<span id="delivery-charge">0</span></th>
+                            </tr>
+                            <tr>
+                              <th>Total Price</th>
+                              <th>$<span id="total-price">1299</span></th>
+                            </tr>
+                          </table>
+                        </div>
+                        <input class="border border-gray-400" type="text">
+                        <button class="bg-red-400 round px-4 font-mono">Apply</button>
+                </div>
+            </div>
+            
+          </div>
+          <h3 class="text-center">total = $999</h3>
+    </main>
+    <!-- javascript-->
+    <script src="js/app.js"></script>
+</body>
+</html>
