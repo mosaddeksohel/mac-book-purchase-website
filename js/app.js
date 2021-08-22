@@ -1,79 +1,85 @@
-// unified Memory Price 
-function memoryPrice(){
-    const extraMemoryCost = document.getElementById('extra-momery-cost');
-    extraMemoryCost.innerText = parseInt(newPrice);
+var memory , ssd , deliveryCharge , bestPrize , discount =0;
+// unified memory
+function memoryValue(){
+    memory = document.getElementById('momery-cost');
+}
+// storage
+function storageValue(){
+    ssd = document.getElementById('ssd-cost');
+}
+// delivey charge
+function deliveryValue(){
+    deliveryCharge = document.getElementById('delivery-charge');
 }
 
-// SSD Storage
-function getStorage(){
-    const extraMemoryCost = document.getElementById('extra-ssd-cost');
-    extraMemoryCost.innerText = parseInt(newStorage);
-}
-// delivery cost
-function getDeliveryCost(){
-    const primedelivery = document.getElementById('delivery-charge');
-    primedelivery.innerText = parseInt(deliveryCost);
-}
-
-// Total product price calculation
-function getCalculation(){
-    const bestPrice = document.getElementById('total-price');
-    const newBestPrice = bestPrice.innerText;
-    newBestPrice.value = parseInt(newBestPrice);
-
-    const totalPrice = newBestPrice + newPrice + newStorage + deliveryCost;
-    return totalPrice;
-}
-
-// 8GB unified memory 
 document.getElementById('8gb-memory').addEventListener('click', function(){
-    newPrice = 0;
-    memoryPrice ();
+    memoryValue()
+    memory.innerText = 0;
+    calculation();
 });
-
-
-// 16GB unified memory 
 document.getElementById('16gb-memory').addEventListener('click', function(){
-   newPrice = 180 ;
-   memoryPrice ();
+    memoryValue()
+    memory.innerText = 180;
+    calculation();
+    
 });
-
-
-// 256gb SSD storage 
 document.getElementById('256gb-ssd').addEventListener('click', function(){
-    newStorage = 0;
-    getStorage();
+    storageValue();
+    ssd.innerText = 0;
+    calculation();
     
 });
-
-
-// 512gb SSD storage 
 document.getElementById('512gb-ssd').addEventListener('click', function(){
-    newStorage = 100;
-    getStorage();
+    storageValue();
+    ssd.innerText = 100;
+    calculation();
     
 });
-
-// 1TB SSD storage 
 document.getElementById('1tb-ssd').addEventListener('click', function(){
-    newStorage = 180;
-    getStorage();
+    storageValue();
+    ssd.innerText = 180;
+    calculation();
     
 });
-
-
-// free prime delivery 
 document.getElementById('prime-delivery').addEventListener('click', function(){
-    deliveryCost = 0;
-    getDeliveryCost ();
+    deliveryValue();
+    deliveryCharge.innerText = 0;
+    calculation();
     
 });
-// Quick delivery 
 document.getElementById('quick-delivery').addEventListener('click', function(){
-    deliveryCost = 20;
-    getDeliveryCost ();
+    deliveryValue();
+    deliveryCharge.innerText = 20;
+    calculation();
     
 });
 
+document.getElementById('apply').addEventListener('click', function(){
+    discount = document.getElementById('apply-input').value;
+    if(discount == "stevekaku"){
+        discount = 20;
+    }
+    calculation();
+    
+});
+// total calculation
+function calculation(){
+    console.log("discount " , discount)
+    const MemoryCost = memory != undefined ? memory.innerText : 0;
+    const ssdCost = ssd !== undefined ? ssd.innerText : 0;
+    const deliveryCost = deliveryCharge != undefined ? deliveryCharge.innerText: 0;
 
+    bestPrize = document.getElementById('best-price').innerText;
 
+    // totalCost Sum 
+    const totalCost = parseInt(MemoryCost)+parseInt(ssdCost)+parseInt(deliveryCost)+parseInt(bestPrize);
+    document.getElementById('total-price').innerText = parseInt(totalCost);
+    document.getElementById('total').innerText = parseInt(totalCost);
+// total and after discount 20%
+    if(discount != 0){
+        totalCostAfterDiscount =  totalCost - totalCost * (  discount / 100 ) ;
+        document.getElementById('total').innerText = "Total = " + parseFloat(totalCostAfterDiscount);
+        document.getElementById('apply-input').value = '';
+    }
+    
+}

@@ -1,9 +1,10 @@
+/* table design */
 td, th {
     text-align: left;
     padding: 8px;
 }
 
-
+/* hover  */
 .btn:hover{
     background-color: gray;
     color: white;
